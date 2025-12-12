@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   // Call your tracking endpoint (ngrok URL)
   if (tid) {
     // IMPORTANT: replace with your real ngrok URL
-    const trackingEndpoint = "https://YOUR_NGROK_SUBDOMAIN.ngrok.io/update_open?tid=" + encodeURIComponent(tid);
+    const trackingEndpoint = "https://tawanda-workaday-biotechnologically.ngrok-free.dev/update_open?tid=" + encodeURIComponent(tid);
 
     fetch(trackingEndpoint).catch(() => { /* ignore errors */ });
   }
@@ -19,3 +19,4 @@ export default async function handler(req, res) {
   res.setHeader("Content-Length", pixel.length);
   res.status(200).send(pixel);
 }
+
