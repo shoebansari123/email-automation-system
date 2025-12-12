@@ -13,11 +13,14 @@ export default async function handler(req, res) {
 
     console.log("Calling tracking endpoint:", trackingEndpoint);
 
-    fetch(trackingEndpoint, {
-      headers: { "ngrok-skip-browser-warning": "true" }
-    })
-    .then(() => console.log("Fetch sent"))
-    .catch(err => console.log("Fetch error:", err));
+    try {
+      const response = await fetch(trackingEndpoint, {
+        headers: { "ngrok-skip-browser-warning": "true" }
+      });
+      console.log("Fetch response status:", response.status);
+    } catch (err) {
+      console.log("Fetch error:", err.message);
+    }
   }
 
   res.setHeader("Content-Type", "image/png");
